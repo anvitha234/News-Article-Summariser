@@ -1,6 +1,28 @@
 # News Article Summarizer
 
-A Python-based news article processing pipeline that fetches, processes, and summarizes news articles using NLP techniques.
+Hey! This is my NLP lab project that fetches news articles and creates summaries.
+
+## How to Run
+
+1. First, install the required packages:
+```bash
+pip install -r requirements.txt
+```
+
+2. Download the model (this might take a few minutes):
+```bash
+python download_model.py
+```
+
+3. Create a file named `.env` in the project folder and add your NewsAPI key: (Sign up on https://newsapi.org/ to generate an api key)
+```
+NEWS_API=your_api_key_here
+```
+
+4. Run the program:
+```bash
+python main.py
+```
 
 ## Features
 
