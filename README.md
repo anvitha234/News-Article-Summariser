@@ -1,68 +1,81 @@
-# News Article Processing Pipeline
+# News Article Summarizer
 
-This project implements a complete pipeline for processing news articles, including crawling, content extraction, and summarization.
+A Python-based news article processing pipeline that fetches, processes, and summarizes news articles using NLP techniques.
 
 ## Features
 
-- News article crawling using NewsAPI
-- Full content extraction from article URLs
-- Text cleaning and processing
-- Article summarization using the Pegasus model
+- Fetches news articles using NewsAPI
+- Extracts and processes article content
+- Generates summaries using the Pegasus model
+- Supports multiple articles processing
+- Progress tracking and error handling
 
-## Prerequisites
-
-- Python 3.7+
-- NewsAPI key (get one at https://newsapi.org/)
-
-## Installation
+## Setup
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/news-article-pipeline.git
-cd news-article-pipeline
+git clone <your-repository-url>
+cd News-Extractor-Summarizer
 ```
 
-2. Install required packages:
+2. Create a virtual environment and activate it:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+3. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Create a `.env` file in the project root and add your NewsAPI key:
+4. Create a `.env` file in the project root and add your NewsAPI key:
 ```
-NEWS_API=your_newsapi_key_here
+NEWS_API=your_api_key_here
 ```
 
 ## Usage
 
-Run the main pipeline:
+1. Download the Pegasus model:
+```bash
+python download_model.py
+```
+
+2. Run the pipeline:
 ```bash
 python main.py
 ```
 
-The script will:
-1. Prompt for search criteria (query, date range, language)
-2. Crawl news articles
-3. Extract and process full content
-4. Generate summaries
+Or run individual components:
+```bash
+python crawl.py      # Fetch articles
+python content.py    # Process content
+python summarise.py  # Generate summaries
+```
 
 ## Project Structure
 
-- `main.py`: Main pipeline orchestration
-- `crawl.py`: News article crawling functionality
-- `content.py`: Content extraction and processing
-- `summarise.py`: Article summarization using Pegasus model
+```
+News-Extractor-Summarizer/
+├── crawl.py         # Article fetching
+├── content.py       # Content processing
+├── summarise.py     # Summary generation
+├── main.py          # Main pipeline
+├── download_model.py # Model downloader
+├── requirements.txt # Dependencies
+└── README.md        # Documentation
+```
 
-## Output
+## Dependencies
 
-The pipeline generates the following outputs:
-- `dataset/raw/news_1.csv`: Initial crawled articles
-- `dataset/raw/news_with_full_content_2.csv`: Processed articles with full content
-- `dataset/multi-summaries/summaries.txt`: Generated summaries
+- newsapi-python
+- transformers
+- pandas
+- numpy
+- colorama
+- tqdm
+- python-dotenv
 
 ## License
 
-[Your chosen license]
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request. 
+MIT License 
